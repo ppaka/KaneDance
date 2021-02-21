@@ -23,8 +23,6 @@ public class MainMenu : MonoBehaviour
     {
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-        
-        Task.Run(CheckForUpdate);
     }
 #endif
 
