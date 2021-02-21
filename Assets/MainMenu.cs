@@ -1,4 +1,6 @@
-﻿using Squirrel;
+﻿#if UNITY_STANDALONE_WIN
+using Squirrel;
+#endif
 using System;
 using System.Collections;
 using System.Collections.Generic;
