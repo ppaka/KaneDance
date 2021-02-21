@@ -1,0 +1,8 @@
+﻿# 디폴트 무시된 파일
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.KaneDance.iml
