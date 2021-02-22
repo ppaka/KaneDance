@@ -3,7 +3,7 @@
 (반응이 좋으면 구글 플레이 스토어에 올릴까 생각중입니다. 아, 리더보드 기능도 넣고요!)
 
 # 바이러스가 있다고 나오는 문제
-현재 Trojan:Script/Wacatac.B!ml 가 발견되는 경우가 있습니다.
+현재 Trojan:Script/Wacatac.B!ml 가 발견되는 일이 있습니다.
 이는 Squirrel공식 Issues에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
 https://github.com/Squirrel/Squirrel.Windows/issues/1653
 
@@ -37,8 +37,6 @@ https://github.com/ppaka/KaneDance/releases
 안드로이드는 KaneDance.apk 만 다운받아주시고 설치해주세요!
 
 실행시 나오는 경고문은 가볍게 무시 해주시고 설치해주시면 됩니다.
-(경고문이 나오는 이유는 패키지 서명을 하지 않고 배포를 해서 입니다.
-이를 해결할 방법은 서명 키를 발급받아 적용시키는 방법밖에 없답니다...)
 
 # 게임을 실행하는데 갑자기 작업 표시줄에 뭔가 나타났어요!
 이 게임은 Squirrel을 통해 압축을 하며, 동시에 업데이트도 진행합니다.
