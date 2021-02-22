@@ -18,8 +18,6 @@ public class MainMenu : MonoBehaviour
     public Image prog_image;
     public TMP_Text btn_text;
 
-    private string url = "https://github.com/ppaka/KaneDance";
-
 #if UNITY_ANDROID
     private void Start()
     {
@@ -35,16 +33,38 @@ public class MainMenu : MonoBehaviour
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
-        Task.Run(CheckForUpdate);
+        if (errorDetected == true && Task.Run(CheckForUpdate).Result == false)
+        {
+            btn_text.text = "업데이트를 하는 도중 오류가 발생했습니다";
+        }
+        else if (Task.Run(CheckForUpdate).Result == false)
+        {
+            btn_text.text = "최신버전 입니다";
+        }
     }
 
-    private async Task CheckForUpdate()
+    private string url = "https://github.com/ppaka/KaneDance";
+    private bool updatePending;
+    private bool errorDetected;
+
+    private async Task<bool> CheckForUpdate()
     {
         try
         {
             using (var manager = await UpdateManager.GitHubUpdateManager(url))
             {
-                var info = await manager.CheckForUpdate(false);
+                var info = await manager.CheckForUpdate();
+
+                if (info.ReleasesToApply.Count == 0)
+                {
+                    if (updatePending)
+                    {
+                        btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
+                        return true;
+                    }
+
+                    return false;
+                }
 
                 prog_image.fillAmount = 0;
                 btn_text.text = "업데이트 다운로드중...";
@@ -56,14 +76,18 @@ public class MainMenu : MonoBehaviour
 
                 await manager.ApplyReleases(info, p => prog_image.fillAmount = p / 100f);
 
+                updatePending = true;
                 prog_image.fillAmount = 0;
                 btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
+                errorDetected = false;
+                return true;
             }
         }
         catch (Exception e)
         {
             Debug.Log(e);
-            btn_text.text = "업데이트를 찾는 도중 오류가 발생했습니다";
+            errorDetected = true;
+            return false;
         }
     }
 #endif
