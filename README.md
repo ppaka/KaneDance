@@ -3,6 +3,9 @@
 # 바이러스가 있다고 나오는 문제
 현재 Trojan:Script/Wacatac.B!ml 가 발견되는 경우가 있습니다.
 이는 서명이 안된 Setup.exe 파일로 추정 되며 컴퓨터에 문제가 되는 부분은 없습니다.
+https://github.com/Squirrel/Squirrel.Windows/issues/1653
+1.0.1 버전 파일 검사 기록
+https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection
 
 # 업데이트가 계속 발견되는 문제
 이 Github 릴리즈에 업로드된 파일의 버전이 최신 버전으로 인식되어 나오는 문제입니다.
