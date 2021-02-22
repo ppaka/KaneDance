@@ -41,3 +41,6 @@ https://github.com/ppaka/KaneDance/releases
 # 게임을 실행하는데 갑자기 작업 표시줄에 뭔가 나타났어요!
 이 게임은 Squirrel을 통해 압축을 하며, 동시에 업데이트도 진행합니다.
 즉, Squirrel 내부의 Update.exe를 이용해 설치를 하는 과정이므로 안심하셔도 됩니다.
+
+# 배먹어 배!
+![kaneImage](https://user-images.githubusercontent.com/25785584/108693903-be3e2580-7541-11eb-94c9-1196556ea3bc.jpg)
