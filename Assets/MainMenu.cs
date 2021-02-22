@@ -33,61 +33,52 @@ public class MainMenu : MonoBehaviour
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
 
-        if (errorDetected == true && Task.Run(CheckForUpdate).Result == false)
+        Task.Run(CheckForUpdate);
+
+        /*if (errorDetected == true && Task.Run(CheckForUpdate).ContinueWith(() => ) == false)
         {
             btn_text.text = "업데이트를 하는 도중 오류가 발생했습니다";
         }
         else if (Task.Run(CheckForUpdate).Result == false)
         {
             btn_text.text = "최신버전 입니다";
-        }
+        }*/
     }
 
     private string url = "https://github.com/ppaka/KaneDance";
-    private bool updatePending;
-    private bool errorDetected;
+    private bool _updatePending;
 
-    private async Task<bool> CheckForUpdate()
+    private async Task CheckForUpdate()
     {
-        try
+        using (var manager = await UpdateManager.GitHubUpdateManager(url))
         {
-            using (var manager = await UpdateManager.GitHubUpdateManager(url))
+            var info = await manager.CheckForUpdate();
+
+            if (info.ReleasesToApply.Count == 0)
             {
-                var info = await manager.CheckForUpdate();
-
-                if (info.ReleasesToApply.Count == 0)
+                if (_updatePending)
                 {
-                    if (updatePending)
-                    {
-                        btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
-                        return true;
-                    }
-
-                    return false;
+                    btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
                 }
-
-                prog_image.fillAmount = 0;
-                btn_text.text = "업데이트 다운로드중...";
-
-                await manager.DownloadReleases(info.ReleasesToApply, p => prog_image.fillAmount = p / 100f);
-
-                prog_image.fillAmount = 0;
-                btn_text.text = "업데이트 설치중...";
-
-                await manager.ApplyReleases(info, p => prog_image.fillAmount = p / 100f);
-
-                updatePending = true;
-                prog_image.fillAmount = 0;
-                btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
-                errorDetected = false;
-                return true;
+                else
+                {
+                    btn_text.text = "최신버전 입니다.";
+                }
             }
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-            errorDetected = true;
-            return false;
+
+            prog_image.fillAmount = 0;
+            btn_text.text = "업데이트 다운로드중...";
+
+            await manager.DownloadReleases(info.ReleasesToApply, p => prog_image.fillAmount = p / 100f);
+
+            prog_image.fillAmount = 0;
+            btn_text.text = "업데이트 설치중...";
+
+            await manager.ApplyReleases(info, p => prog_image.fillAmount = p / 100f);
+
+            _updatePending = true;
+            prog_image.fillAmount = 0;
+            btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
         }
     }
 #endif
