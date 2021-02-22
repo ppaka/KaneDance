@@ -2,9 +2,10 @@
 
 # 바이러스가 있다고 나오는 문제
 현재 Trojan:Script/Wacatac.B!ml 가 발견되는 경우가 있습니다.
-이는 서명이 안된 Setup.exe 파일로 추정 되며 컴퓨터에 문제가 되는 부분은 없습니다.
+이는 Squirrel공식 Issues에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
 https://github.com/Squirrel/Squirrel.Windows/issues/1653
-1.0.1 버전 파일 검사 기록
+
+1.0.1 버전 기준 파일 검사 기록
 https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection
 
 # 업데이트가 계속 발견되는 문제
@@ -13,7 +14,7 @@ https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c
 추후 수정하도록 하겠습니다.
 
 # 안드로이드에서 Play Protect에 감지되는 문제
-이 앱이 개발자의 서명을 인식해서 생기는 문제 입니다.
+이 앱이 개발자의 서명을 인식하지 못해서 생기는 문제 입니다.
 마찬가지로 바이러스는 없습니다. 안심하셔도 됩니다!
 
 # 케인인님 몰래 춤추기
@@ -37,4 +38,4 @@ https://github.com/ppaka/KaneDance/releases
 
 # 게임을 실행하는데 갑자기 작업 표시줄에 뭔가 나타났어요!
 이 게임은 Squirrel을 통해 압축을 하며, 동시에 업데이트도 진행합니다.
-Squirrel 내부의 Update.exe를 이용해 설치를 하는 과정이므로 안심하셔도 됩니다.
+즉, Squirrel 내부의 Update.exe를 이용해 설치를 하는 과정이므로 안심하셔도 됩니다.
