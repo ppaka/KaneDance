@@ -45,12 +45,12 @@ public class MainMenu : MonoBehaviour
         }*/
     }
 
-    private string url = "https://github.com/ppaka/KaneDance";
+    private const string URL = "https://github.com/ppaka/KaneDance";
     private bool _updatePending;
 
     private async Task CheckForUpdate()
     {
-        using (var manager = await UpdateManager.GitHubUpdateManager(url))
+        using (var manager = await UpdateManager.GitHubUpdateManager(URL))
         {
             var info = await manager.CheckForUpdate();
 
@@ -59,11 +59,11 @@ public class MainMenu : MonoBehaviour
                 if (_updatePending)
                 {
                     btn_text.text = "재시작하여 업데이트를 완료 해주세요!";
+                    return;
                 }
-                else
-                {
-                    btn_text.text = "최신버전 입니다.";
-                }
+
+                btn_text.text = "최신버전 입니다.";
+                return;
             }
 
             prog_image.fillAmount = 0;
