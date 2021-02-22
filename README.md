@@ -20,6 +20,13 @@ https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c
 
 문제가 있을 시 바로 삭제하도록 하겠습니다.
 
+소스를 제작해주신 모든 분들께 감사하단 말씀 드립니다!
+
+음악- 1차 Jupuz, 2차 나이스티비
+개발- paka
+아이디어- 뭉탱탱이
+케인- 케인TV
+
 # 다운받는 법
 (이 링크로 이동하셔도 됩니다.)
 https://github.com/ppaka/KaneDance/releases
