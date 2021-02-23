@@ -1,2 +1,7 @@
+*.cs linguist-detectable=true
+*.shader linguist-detectable=false
+*.cginc linguist-detectable=false
+
+
 # Auto detect text files and perform LF normalization
 * text=auto
