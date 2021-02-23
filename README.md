@@ -2,18 +2,6 @@
 !안드로이드는 자동 업데이트 를! 지원하지 않습니다!
 (반응이 좋으면 구글 플레이 스토어에 올릴까 생각중입니다. 아, 리더보드 기능도 넣고요!)
 
-# 바이러스가 있다고 나오는 문제
-현재 Trojan:Script/Wacatac.B!ml 가 발견되는 일이 있습니다.
-이는 Squirrel공식 Issues에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
-https://github.com/Squirrel/Squirrel.Windows/issues/1653
-
-1.0.1 버전 기준 파일 검사 기록
-https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection
-
-# 안드로이드에서 Play Protect에 감지되는 문제
-이 앱이 개발자의 서명을 인식하지 못해서 생기는 문제 입니다.
-마찬가지로 바이러스는 없습니다. 안심하셔도 됩니다!
-
 # 케인인님 몰래 춤추기
 스페이스바 또는 마우스 클릭을 이용해 플레이 합니다.
 
@@ -28,6 +16,18 @@ https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c
 개발- paka / 
 아이디어- 뭉탱탱이 / 
 케인- 케인TV
+
+# 바이러스가 있다고 나오는 문제
+현재 Trojan:Script/Wacatac.B!ml 가 발견되는 일이 있습니다.
+이는 Squirrel공식 Issues에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
+https://github.com/Squirrel/Squirrel.Windows/issues/1653
+
+1.0.1 버전 기준 파일 검사 기록
+https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection
+
+# 안드로이드에서 Play Protect에 감지되는 문제
+이 앱이 개발자의 서명을 인식하지 못해서 생기는 문제 입니다.
+마찬가지로 바이러스는 없습니다. 안심하셔도 됩니다!
 
 # 다운받는 법
 (이 링크로 이동하셔도 됩니다.)
