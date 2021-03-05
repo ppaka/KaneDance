@@ -8,7 +8,7 @@ public class Over : MonoBehaviour
 {
     public AudioClip ja, igonan;
     public Camera _camera;
-    public SpriteRenderer getout, sorry, hit;
+    public SpriteRenderer fgetout, getout, sorry, hit;
     public Animator hittingAnim;
     public AudioSource audioSorry;
     public CanvasGroup CanvasGroup;
@@ -45,6 +45,11 @@ public class Over : MonoBehaviour
 
     private IEnumerator ChangeScreen()
     {
+        yield return new WaitForSeconds(2);
+        
+        fgetout.gameObject.SetActive(false);
+        getout.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(2);
 
         _camera.backgroundColor = new Color(0.7372549f, 0.8352942f, 0.6235294f);
