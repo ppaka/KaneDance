@@ -105,7 +105,7 @@ public class GameScript : MonoBehaviour
             teacher_animator.SetBool(Watch, true);
             yield return new WaitForSeconds(0.4f);
             teacherWatching = true;
-            var turnbackRange = UnityEngine.Random.Range(1, 4)
+            var turnbackRange = UnityEngine.Random.Range(1, 4);
             yield return new WaitForSeconds(turnbackRange);
             StartCoroutine(nameof(TurnBack));
         }
