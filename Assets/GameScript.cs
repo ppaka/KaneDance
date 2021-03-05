@@ -83,7 +83,7 @@ public class GameScript : MonoBehaviour
     private IEnumerator FirstStart()
     {
         teacherWatching = true;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(nameof(TurnBack));
     }
 
@@ -105,13 +105,15 @@ public class GameScript : MonoBehaviour
             teacher_animator.SetBool(Watch, true);
             yield return new WaitForSeconds(0.4f);
             teacherWatching = true;
-            var turnbackRange = UnityEngine.Random.Range(1, 4)
-            yield return new WaitForSeconds(turnbackRange);
+            
+            var turnRange = UnityEngine.Random.Range(1, 5);
+            Debug.Log(turnRange);
+            yield return new WaitForSeconds(turnRange);
             StartCoroutine(nameof(TurnBack));
         }
         else
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.2f);
             StartCoroutine(nameof(Random));
         }
     }
