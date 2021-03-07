@@ -20,13 +20,22 @@ public class GoogleAccount : MonoBehaviour
         try
         {
             PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
-            PlayGamesPlatform.DebugLogEnabled = true;
+            // PlayGamesPlatform.DebugLogEnabled = true;
             PlayGamesPlatform.Activate();
             _waitingForAuth = true;
             linkGpgs.gameObject.SetActive(true);
         }
         catch
         {
+            linkGpgs.gameObject.SetActive(false);
+        }
+        
+        if (Social.localUser.authenticated)
+        {
+            _waitingForAuth = false;
+            unlinkGpgs.gameObject.SetActive(true);
+            showLeaderboard.gameObject.SetActive(true);
+            showAchievement.gameObject.SetActive(true);
             linkGpgs.gameObject.SetActive(false);
         }
     }
