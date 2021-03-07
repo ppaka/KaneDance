@@ -22,6 +22,7 @@ MonoBehaviour:
   m_SourceFontFile: {fileID: 12800000, guid: 14473f90ba8dd2645b620d6dd1e5abc8, type: 3}
   m_AtlasPopulationMode: 1
   m_FaceInfo:
+    m_FaceIndex: 0
     m_FamilyName: Gungsuh
     m_StyleName: Regular
     m_PointSize: 90
@@ -2153,6 +2154,7 @@ MonoBehaviour:
   - {fileID: 6057607409672020562}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
+  m_ClearDynamicDataOnBuild: 0
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
