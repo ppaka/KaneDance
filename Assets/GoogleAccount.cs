@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
+using UnityEngine.UI;
+#if UNITY_ANDROID
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-using UnityEngine;
-using UnityEngine.UI;
+#endif
+// ReSharper disable StringLiteralTypo
 
 public class GoogleAccount : MonoBehaviour
 {
@@ -14,6 +14,7 @@ public class GoogleAccount : MonoBehaviour
     public Button showLeaderboard;
     public Button showAchievement;
     
+#if UNITY_ANDROID
     private void Awake()
     {
         try
@@ -29,6 +30,7 @@ public class GoogleAccount : MonoBehaviour
             linkGpgs.gameObject.SetActive(false);
         }
     }
+#endif
 
     public void Login()
     {
@@ -62,7 +64,8 @@ public class GoogleAccount : MonoBehaviour
     
     public void Leaderboards()
     {
-        Social.ShowLeaderboardUI();
+        // Social.ShowLeaderboardUI();
+        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI4uGrns4JEAIQAA");
     }
     
     private void AuthenticateCallback(bool success)
