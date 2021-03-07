@@ -73,8 +73,8 @@ public class GoogleAccount : MonoBehaviour
     
     public void Leaderboards()
     {
-        // Social.ShowLeaderboardUI();
-        PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkI4uGrns4JEAIQAA");
+        Social.ShowLeaderboardUI();
+        // PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIpOeXgM8UEAIQAQ");
     }
     
     private void AuthenticateCallback(bool success)

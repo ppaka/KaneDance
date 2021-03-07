@@ -48,7 +48,7 @@ public class Over : MonoBehaviour
 #if UNITY_ANDROID
         if (Social.localUser.authenticated)
         {
-            PlayGamesPlatform.Instance.ReportScore((long)PlayerPrefs.GetInt("HighScore"), "CgkI4uGrns4JEAIQAA",
+            PlayGamesPlatform.Instance.ReportScore((long)PlayerPrefs.GetInt("HighScore"), "CgkIpOeXgM8UEAIQAQ",
                 success =>
                 {
                     if (success)
