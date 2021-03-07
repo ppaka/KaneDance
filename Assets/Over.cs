@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+// ReSharper disable StringLiteralTypo
 
 public class Over : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class Over : MonoBehaviour
     public CanvasGroup CanvasGroup;
     public TMP_Text scoreTxt;
     public TMP_Text highScoreTxt;
+    public TMP_Text successTxt;
 
     private int score;
 
@@ -41,6 +45,27 @@ public class Over : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
             highScoreTxt.text = "최고 기록!";
         }
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ReportScore((long)PlayerPrefs.GetInt("HighScore"), "CgkI4uGrns4JEAIQAA",
+                success =>
+                {
+                    if (success)
+                    {
+                        successTxt.text = "점수 등록 완료!";
+                    }
+                    else
+                    {
+                        successTxt.text = "점수 등록 실패...";
+                    }
+                });
+        }
+        else
+        {
+            successTxt.text = "점수를 등록하려면 메인 메뉴에서 게임패드 모양의 버튼을 눌러주세요...";
+        }
+#endif
     }
 
     private IEnumerator ChangeScreen()
