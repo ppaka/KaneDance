@@ -59,6 +59,7 @@ public class GoogleAccount : MonoBehaviour
     {
         if (_waitingForAuth) return;
         
+#if UNITY_ANDROID
         if (Social.localUser.authenticated)
         {
             ((PlayGamesPlatform)Social.Active).SignOut();
@@ -68,6 +69,7 @@ public class GoogleAccount : MonoBehaviour
             showAchievement.gameObject.SetActive(false);
             linkGpgs.gameObject.SetActive(true);
         }
+#endif
     }
 
     public void Achievements()
