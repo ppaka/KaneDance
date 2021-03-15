@@ -1,110 +1,124 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameScript : MonoBehaviour
 {
-    public Animator teacher_animator;
-    public Animator moongtaeng_animator;
-    public Animator moving_animator;
-    public Animator moe_animator;
-    public Animator sorry_animator;
+    public Animator teacherAnimator;
+    public Animator moongtaengAnimator;
+    public Animator movingAnimator;
+    public Animator moeAnimator;
+    public Animator sorryAnimator;
     public new AudioSource audio;
     public TMP_Text scoreTxt;
     public Image hpBar;
 
     private static readonly int SpaceDown = Animator.StringToHash("SpaceDown");
 
-    private float score;
-    private bool keydown;
-    private bool gameover;
-    private bool teacherWatching;
+    private float _score;
+    private bool _keydown;
+    private bool _gameover;
+    private bool _teacherWatching;
     private static readonly int Watch = Animator.StringToHash("Watch");
 
     private void Awake()
     {
-        keydown = false;
+        _keydown = false;
         StartCoroutine(nameof(FirstStart));
     }
 
     private void Update()
     {
-        scoreTxt.text = score.ToString("0");
+        scoreTxt.text = _score.ToString("0");
 
         if (hpBar.fillAmount == 0)
         {
-            PlayerPrefs.SetInt("Score", int.Parse(score.ToString("0")));
+            PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
             SceneManager.LoadScene("GameOver");
         }
 
-        if (keydown)
+        if (_keydown)
         {
             hpBar.fillAmount += Time.deltaTime * 2 * 0.1f;
-            score += (Time.deltaTime * 1.5f * 20);
+            _score += (Time.deltaTime * 1.5f * 20);
         }
         else
         {
             hpBar.fillAmount -= Time.deltaTime * 0.07f;
-            score += (Time.deltaTime * 20);
+            _score += (Time.deltaTime * 20);
         }
 
-        if (teacherWatching && keydown)
+        if (_teacherWatching && _keydown)
         {
-            PlayerPrefs.SetInt("Score", int.Parse(score.ToString("0")));
+            PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
             SceneManager.LoadScene("GameOver");
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !keydown || Input.GetKeyDown(KeyCode.Mouse0) && !keydown)
+    public void OnClick(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
         {
-            keydown = true;
-            audio.Play();
-            moongtaeng_animator.SetBool(SpaceDown, true);
-            moving_animator.SetBool(SpaceDown, true);
-            moe_animator.SetBool(SpaceDown, true);
-            sorry_animator.SetBool(SpaceDown, true);
+            try
+            {
+                _keydown = true;
+                audio.Play();
+                moongtaengAnimator.SetBool(SpaceDown, true);
+                movingAnimator.SetBool(SpaceDown, true);
+                moeAnimator.SetBool(SpaceDown, true);
+                sorryAnimator.SetBool(SpaceDown, true);
+            }
+            catch
+            {
+                //
+            }
         }
-
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Mouse0))
+        if (ctx.canceled)
         {
-            keydown = false;
-
-            audio.Stop();
-            moongtaeng_animator.SetBool(SpaceDown, false);
-            moving_animator.SetBool(SpaceDown, false);
-            moe_animator.SetBool(SpaceDown, false);
-            sorry_animator.SetBool(SpaceDown, false);
+            try
+            {
+                _keydown = false;
+                audio.Stop();
+                moongtaengAnimator.SetBool(SpaceDown, false);
+                movingAnimator.SetBool(SpaceDown, false);
+                moeAnimator.SetBool(SpaceDown, false);
+                sorryAnimator.SetBool(SpaceDown, false);
+            }
+            catch
+            {
+                //
+            }
         }
     }
 
     private IEnumerator FirstStart()
     {
-        teacherWatching = true;
+        _teacherWatching = true;
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(nameof(TurnBack));
     }
 
     private IEnumerator TurnBack()
     {
-        teacherWatching = false;
-        teacher_animator.SetBool(Watch, false);
+        _teacherWatching = false;
+        teacherAnimator.SetBool(Watch, false);
         StartCoroutine(nameof(Random));
         yield break;
     }
 
     private IEnumerator Random()
     {
-        teacherWatching = false;
+        _teacherWatching = false;
 
         var range = UnityEngine.Random.Range(1, 100);
         if (range >= 77)
         {
-            teacher_animator.SetBool(Watch, true);
+            teacherAnimator.SetBool(Watch, true);
             yield return new WaitForSeconds(0.4f);
-            teacherWatching = true;
+            _teacherWatching = true;
             
             var turnRange = UnityEngine.Random.Range(1, 5);
             yield return new WaitForSeconds(turnRange);
