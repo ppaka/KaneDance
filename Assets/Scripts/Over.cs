@@ -22,6 +22,7 @@ public class Over : MonoBehaviour
     public TMP_Text successTxt;
 
     private int score;
+    private static readonly int Start1 = Animator.StringToHash("Start");
 
     public void Retry()
     {
@@ -89,7 +90,7 @@ public class Over : MonoBehaviour
         _camera.backgroundColor = Color.white;
         sorry.gameObject.SetActive(false);
         hit.gameObject.SetActive(true);
-        hittingAnim.SetTrigger("Start");
+        hittingAnim.SetTrigger(Start1);
         audioSorry.clip = ja;
         audioSorry.Play();
 
