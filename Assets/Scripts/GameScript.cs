@@ -42,12 +42,12 @@ public class GameScript : MonoBehaviour
 
         if (_keydown)
         {
-            hpBar.fillAmount += Time.deltaTime * 2 * 0.1f;
+            hpBar.fillAmount += Time.deltaTime * 0.15f;
             _score += (Time.deltaTime * 1.5f * 20);
         }
         else
         {
-            hpBar.fillAmount -= Time.deltaTime * 0.07f;
+            hpBar.fillAmount -= Time.deltaTime * 0.05f;
             _score += (Time.deltaTime * 20);
         }
 
