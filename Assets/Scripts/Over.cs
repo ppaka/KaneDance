@@ -21,7 +21,7 @@ public class Over : MonoBehaviour
     public TMP_Text highScoreTxt;
     public TMP_Text successTxt;
 
-    private int score;
+    private int _score;
     private static readonly int Start1 = Animator.StringToHash("Start");
 
     public void Retry()
@@ -39,35 +39,43 @@ public class Over : MonoBehaviour
     {
         StartCoroutine(nameof(ChangeScreen));
 
-        score = PlayerPrefs.GetInt("Score");
-        scoreTxt.text = score.ToString();
+        _score = PlayerPrefs.GetInt("Score");
+        scoreTxt.text = _score.ToString();
         highScoreTxt.text = PlayerPrefs.GetInt("HighScore").ToString();
 
-        if (score > PlayerPrefs.GetInt("HighScore"))
+        if (_score > PlayerPrefs.GetInt("HighScore"))
         {
-            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.SetInt("HighScore", _score);
             highScoreTxt.text = "최고 기록!";
-        }
 #if UNITY_ANDROID
-        if (Social.localUser.authenticated)
-        {
-            Social.ReportScore((long) PlayerPrefs.GetInt("HighScore"), "CgkI2dzCzbcSEAIQAQ", b =>
+            if (Social.localUser.authenticated)
             {
-                if (b)
+                GoogleAccount.Instance.SaveCloud();
+                Social.ReportProgress(GPGSIds.achievement_first_try, 100, success => {});
+                Social.ReportScore(PlayerPrefs.GetInt("HighScore"), GPGSIds.leaderboard_ranks, success =>
                 {
-                    successTxt.text = "점수 등록 완료!";
-                }
-                else
-                {
-                    successTxt.text = "점수 등록 실패...";
-                }
-            });
-        }
-        else
-        {
-            successTxt.text = "점수를 등록하려면 메인 메뉴에서 게임패드 모양의 버튼을 눌러주세요...";
-        }
+                    if (success)
+                        successTxt.text = "점수 등록 성공!";
+                    else
+                        successTxt.text = "점수 등록 실패...";
+                });
+                
+                Social.ReportProgress(GPGSIds.achievement_300, _score/300, success => { });
+                Social.ReportProgress(GPGSIds.achievement_500, _score/500, success => { });
+                Social.ReportProgress(GPGSIds.achievement_750, _score/750, success => { });
+                Social.ReportProgress(GPGSIds.achievement_1000, _score/1000, success => { });
+                Social.ReportProgress(GPGSIds.achievement_1500, _score/1500, success => { });
+                Social.ReportProgress(GPGSIds.achievement_2000, _score/2000, success => { });
+                Social.ReportProgress(GPGSIds.achievement_2500, _score/2500, success => { });
+                Social.ReportProgress(GPGSIds.achievement_3000, _score/3000, success => { });
+                Social.ReportProgress(GPGSIds.achievement_all_clear, _score/3000, success => { });
+            }
+            else
+            {
+                successTxt.text = "점수를 등록하려면 메인 메뉴에서 게임패드 모양의 버튼을 눌러주세요...";
+            }
 #endif
+        }
     }
 
     private IEnumerator ChangeScreen()

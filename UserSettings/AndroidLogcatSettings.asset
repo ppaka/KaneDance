@@ -2,34 +2,52 @@
     "m_SelectedDeviceId": "95BAY0UF70",
     "m_SelectedPackage": {
         "deviceId": "95BAY0UF70",
-        "name": "com.ppaka.KaneDanceM",
-        "processId": 31975,
+        "name": "com.ppaka.KaneDance",
+        "processId": 6500,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "95BAY0UF70",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2341,
+            "name": "com.ppaka.KaneDance",
+            "processId": 7122,
+            "exited": true
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.ppaka.KaneDance",
+            "processId": 8202,
+            "exited": true
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.ppaka.KaneDance",
+            "processId": 8508,
+            "exited": true
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.ppaka.KaneDance",
+            "processId": 4949,
+            "exited": true
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.ppaka.KaneDance",
+            "processId": 5852,
+            "exited": true
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.android.settings",
+            "processId": 3863,
             "exited": false
         },
         {
             "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDanceM",
-            "processId": 27259,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDanceM",
-            "processId": 29211,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDanceM",
-            "processId": 31975,
+            "name": "com.ppaka.KaneDance",
+            "processId": 6500,
             "exited": false
         }
     ],
@@ -84,6 +102,6 @@
         "Behavior": 0
     },
     "m_Filter": "",
-    "m_FilterIsRegularExpression": false,
+    "m_FilterIsRegularExpression": true,
     "m_SymbolPaths": []
 }
