@@ -50,8 +50,7 @@ public class GoogleAccount : MonoBehaviour
 
     private void InitializeGooglePlayGamesService()
     {
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            .EnableSavedGames()
+        var config = new PlayGamesClientConfiguration.Builder()
             .Build();
 
         PlayGamesPlatform.InitializeInstance(config);
@@ -120,8 +119,6 @@ public class GoogleAccount : MonoBehaviour
                         showLeaderboard.gameObject.SetActive(true);
                         showAchievement.gameObject.SetActive(true);
                         linkGoogle.gameObject.SetActive(false);
-                        
-                        LoadCloud();
                     }
                     else
                     {

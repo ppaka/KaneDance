@@ -1419,14 +1419,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ja: {fileID: 8300000, guid: 06704599e5bb0c94d98746ae0380940f, type: 3}
   igonan: {fileID: 8300000, guid: 26e2a66200d54e54db2bc5ab5a086cf1, type: 3}
-  _camera: {fileID: 1499915374}
+  camera: {fileID: 1499915374}
   fgetout: {fileID: 284517469}
   getout: {fileID: 1089001635}
   sorry: {fileID: 1394769004}
   hit: {fileID: 1900615626}
   hittingAnim: {fileID: 1900615628}
   audioSorry: {fileID: 126746817}
-  CanvasGroup: {fileID: 156180731}
+  canvasGroup: {fileID: 156180731}
   scoreTxt: {fileID: 339891437}
   highScoreTxt: {fileID: 1674752766}
   successTxt: {fileID: 1973969143}
