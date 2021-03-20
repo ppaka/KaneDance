@@ -2873,8 +2873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   versionTxt: {fileID: 1072048394}
   score: {fileID: 1280386157}
-  prog_image: {fileID: 283506089}
-  btn_text: {fileID: 345867757}
+  progImage: {fileID: 283506089}
+  updateText: {fileID: 345867757}
 --- !u!4 &1283093569
 Transform:
   m_ObjectHideFlags: 0
