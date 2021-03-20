@@ -34,6 +34,7 @@
 # 게임 다운로드
 
 윈도우(exe) | 윈도우(zip) | 안드로이드
+---------- | ---------- | ----------
 [링크](https://github.com/ppaka/KaneDance/releases/latest/download/Setup.exe) | [준비중](https://none.com) | [링크](https://github.com/ppaka/KaneDance/releases/latest/download/KaneDance.apk)
 
 실행시 나오는 경고문은 가볍게 무시 해주시고 설치해주시면 됩니다.
