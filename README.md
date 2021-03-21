@@ -19,7 +19,7 @@
 
 # 바이러스 탐지 관련해서...
 현재 Trojan:Script/Wacatac.B!ml 가 발견되는 현상이 있습니다.
-이는 [Squirrel공식 Issues](https://github.com/Squirrel/Squirrel.Windows/issues/1653)에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
+이는 [Squirrel공식 Issues](https://github.com/Squirrel/Squirrel.Windows/issues/1653)에도 다뤄진 이슈 이며 컴퓨터에 피해가 가는 부분은 없습니다.
 
 1.0.1 버전 기준 [파일 검사 기록](https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection)
 
