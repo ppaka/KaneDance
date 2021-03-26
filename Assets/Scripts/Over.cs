@@ -2,7 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
+
 // ReSharper disable StringLiteralTypo
 
 public class Over : MonoBehaviour
@@ -16,6 +17,8 @@ public class Over : MonoBehaviour
     public TMP_Text scoreTxt;
     public TMP_Text highScoreTxt;
     public TMP_Text successTxt;
+
+    public Button skipTxt;
     
     private static readonly int Start1 = Animator.StringToHash("Start");
 
@@ -48,10 +51,7 @@ public class Over : MonoBehaviour
         {
             Social.ReportScore(PlayerPrefs.GetInt("HighScore"), GPGSIds.leaderboard_ranks, success =>
             {
-                if (success)
-                    successTxt.text = "점수 등록 성공!";
-                else
-                    successTxt.text = "점수 등록 실패...";
+                successTxt.text = success ? "점수 등록 성공!" : "점수 등록 실패...";
             });
                 
             Social.ReportProgress(GPGSIds.achievement_first_try, (double)100, success => {});
@@ -70,6 +70,25 @@ public class Over : MonoBehaviour
             successTxt.text = "점수를 등록하려면 메인 메뉴에서 게임패드 모양의 버튼을 눌러주세요...";
         }
 #endif
+    }
+
+    public void SkipScreen()
+    {
+        StopCoroutine(nameof(ChangeScreen));
+        
+        skipTxt.gameObject.SetActive(false);
+        
+        audioSorry.Stop();
+        fgetout.gameObject.SetActive(false);
+        getout.gameObject.SetActive(false);
+        sorry.gameObject.SetActive(false);
+        hit.gameObject.SetActive(false);
+        camera.backgroundColor = Color.white;
+        audioSorry.clip = igonan;
+        audioSorry.Play();
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 
     private IEnumerator ChangeScreen()
@@ -97,6 +116,7 @@ public class Over : MonoBehaviour
         audioSorry.Play();
 
         yield return new WaitForSeconds(2);
+        
         hit.gameObject.SetActive(false);
         audioSorry.clip = igonan;
         audioSorry.Play();
