@@ -1,6 +1,6 @@
 # 해당 글을 모두 봐주세요
-현재, 안드로이드 버전은 구글 플레이 스토어에서 검토 중입니다.
-곧 많은 기능을 가지고 출시될 예정입니다!
+안드로이드 버전은 구글 플레이 스토어에서 설치 가능합니다!
+[플레이 스토어 링크](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
 
 # 케인인님 몰래 춤추기 게임!
 스페이스바 또는 마우스 클릭을 이용해 플레이 합니다.
@@ -19,7 +19,7 @@
 
 # 바이러스 탐지 관련해서...
 현재 Trojan:Script/Wacatac.B!ml 가 발견되는 현상이 있습니다.
-이는 [Squirrel공식 Issues](https://github.com/Squirrel/Squirrel.Windows/issues/1653)에도 다워진 문제 이며 컴퓨터에 피해가 가는 부분은 없습니다.
+이는 [Squirrel공식 Issues](https://github.com/Squirrel/Squirrel.Windows/issues/1653)에도 다뤄진 이슈 이며 컴퓨터에 피해가 가는 부분은 없습니다.
 
 1.0.1 버전 기준 [파일 검사 기록](https://www.virustotal.com/gui/file/4dfef0d9cfac6996a9835b3d726a121e0625418d301c896a581931657a5be52e/detection)
 
@@ -40,7 +40,7 @@
 
 윈도우(exe) | 윈도우(zip) | 안드로이드
 ---------- | ---------- | ----------
-[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Setup.exe) | [준비중](https://none.com) | [링크](https://github.com/ppaka/KaneDance/releases/latest/download/KaneDance.apk)
+[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Setup.exe) | [링크](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [링크](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
 
 실행시 나오는 경고문은 가볍게 무시 해주시고 설치해주시면 됩니다.
 
