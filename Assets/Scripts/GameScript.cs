@@ -111,6 +111,7 @@ public class GameScript : MonoBehaviour
         teacherAnimator.SetBool(Watch, false);
         yield return new WaitForSeconds(0.2f);
         _teacherWatching = false;
+        yield return new WaitForSeconds(0.2f);
         StartCoroutine(nameof(Random));
     }
 
@@ -120,7 +121,7 @@ public class GameScript : MonoBehaviour
         if (range >= 78)
         {
             teacherAnimator.SetBool(Watch, true);
-            yield return new WaitForSeconds(0.38f);
+            yield return new WaitForSeconds(0.39f);
             _teacherWatching = true;
             
             var turnRange = UnityEngine.Random.Range(1, 5);
