@@ -1,7 +1,4 @@
-﻿#if UNITY_STANDALONE_WIN
-using Squirrel;
-#endif
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,17 +12,13 @@ public class MainMenu : MonoBehaviour
     public Image progImage;
     public TMP_Text updateText;
 
-#if UNITY_ANDROID
     private void Start()
     {
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
-#endif
-
-#if UNITY_STANDALONE_WIN
-
-    private void Start()
+    
+    /*private void Start()
     {
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
@@ -75,12 +68,16 @@ public class MainMenu : MonoBehaviour
         {
             //
         }
-    }
-#endif
-
+    }*/
+    
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void InfiniteMode()
+    {
+        SceneManager.LoadScene("InfiniteGame");
     }
 
     public void Exit()
