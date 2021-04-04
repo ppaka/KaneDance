@@ -42,7 +42,7 @@ public class GameScript : MonoBehaviour
 
         if (_keydown)
         {
-            hpBar.fillAmount += Time.deltaTime * 0.15f;
+            hpBar.fillAmount += Time.deltaTime * 0.10f;
             _score += (Time.deltaTime * 1.5f * 15);
         }
         else
@@ -111,7 +111,7 @@ public class GameScript : MonoBehaviour
         teacherAnimator.SetBool(Watch, false);
         yield return new WaitForSeconds(0.2f);
         _teacherWatching = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.25f);
         StartCoroutine(nameof(Random));
     }
 
