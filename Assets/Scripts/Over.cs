@@ -117,6 +117,8 @@ public class Over : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         
+        skipTxt.gameObject.SetActive(false);
+        
         hit.gameObject.SetActive(false);
         audioSorry.clip = igonan;
         audioSorry.Play();
