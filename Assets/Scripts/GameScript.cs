@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,12 +16,14 @@ public class GameScript : MonoBehaviour
     public new AudioSource audio;
     public TMP_Text scoreTxt;
     public Image hpBar;
+    
+    public AudioClip dmcaClip, originalClip;
 
     private static readonly int SpaceDown = Animator.StringToHash("SpaceDown");
 
     private float _score;
     private bool _keydown;
-    private bool _gameover;
+    private bool _gameOver;
     private bool _teacherWatching = true;
     private static readonly int Watch = Animator.StringToHash("Watch");
 
@@ -28,6 +31,20 @@ public class GameScript : MonoBehaviour
     {
         _keydown = false;
         StartCoroutine(nameof(FirstStart));
+    }
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
+        {
+            audio.clip = originalClip;
+        }
+        else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
+        {
+            audio.clip = dmcaClip;
+        }
+        
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     private void Update()
@@ -43,12 +60,12 @@ public class GameScript : MonoBehaviour
         if (_keydown)
         {
             hpBar.fillAmount += Time.deltaTime * 0.10f;
-            _score += (Time.deltaTime * 1.5f * 15);
+            _score += Time.deltaTime * 1.5f * 15;
         }
         else
         {
             hpBar.fillAmount -= Time.deltaTime * 0.05f;
-            _score += (Time.deltaTime * 15);
+            _score += Time.deltaTime * 15;
         }
 
         if (_teacherWatching && _keydown)

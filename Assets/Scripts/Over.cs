@@ -89,6 +89,7 @@ public class Over : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
     }
 
     private IEnumerator ChangeScreen()
@@ -125,5 +126,6 @@ public class Over : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 }

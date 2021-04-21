@@ -344,6 +344,8 @@ MonoBehaviour:
   moeAnimator: {fileID: 341885896}
   sorryAnimator: {fileID: 697439430}
   audio: {fileID: 2106194446}
+  dmcaClip: {fileID: 8300000, guid: 752c68ebb86b91149b664aa1c13dee6e, type: 3}
+  originalClip: {fileID: 8300000, guid: 2cbb3011e220cec4fba92f8d85c0af13, type: 3}
 --- !u!4 &458308906
 Transform:
   m_ObjectHideFlags: 0
@@ -1706,7 +1708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB098\uAC00\uAE30"
+  m_text: "\uB098\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed0c5847c6390194eb5a8036df4dc646, type: 2}
   m_sharedMaterial: {fileID: 908033020667383373, guid: ed0c5847c6390194eb5a8036df4dc646,
@@ -2238,7 +2240,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 752c68ebb86b91149b664aa1c13dee6e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
