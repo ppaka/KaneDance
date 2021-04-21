@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +7,26 @@ public class Infinite : MonoBehaviour
     public Canvas descriptionCanvas, IngameCanvas;
     public Animator moongtaengAnimator, movingAnimator, moeAnimator, sorryAnimator;
     public new AudioSource audio;
+
+    public AudioClip dmcaClip, originalClip;
     
     private static readonly int SpaceDown = Animator.StringToHash("SpaceDown");
     private bool _toggle, _playing, _started;
-    
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
+        {
+            audio.clip = originalClip;
+        }
+        else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
+        {
+            audio.clip = dmcaClip;
+        }
+        
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
     public void Hold()
     {
         _toggle = false;
@@ -39,6 +53,8 @@ public class Infinite : MonoBehaviour
 
     public void Exit()
     {
+        _started = false;
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         SceneManager.LoadScene("Main");
     }
     
