@@ -19,7 +19,7 @@
 
 윈도우(zip) | 안드로이드
 ---------- | ----------
-[최신버전(링크)](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [플레이스토어](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
+[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [플레이스토어](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
 
 실행시 나오는 경고문은 가볍게 무시 해주시고 설치해주시면 됩니다.
 
