@@ -1,7 +1,3 @@
-# 해당 글을 모두 봐주세요
-안드로이드 버전은 구글 플레이 스토어에서 설치 가능합니다!
-[플레이 스토어 링크](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
-
 # 케인인님 몰래 춤추기 게임!
 스페이스바 또는 마우스 클릭을 이용해 플레이 합니다.
 
