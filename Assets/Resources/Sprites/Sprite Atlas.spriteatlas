@@ -38,7 +38,7 @@ SpriteAtlas:
       padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
+      enableRotation: 0
       enableTightPacking: 0
     variantMultiplier: 1
     packables:
@@ -60,6 +60,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 778a7417a33048b4f85e6a679c987c58, type: 3}
     - {fileID: 2800000, guid: b6dc752bd7f395047aae35236d6e4134, type: 3}
     - {fileID: 2800000, guid: bc51437b17be61242b6397a940445c28, type: 3}
+    - {fileID: 2800000, guid: 5a5043c934fcdb242a16163938e6a31c, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -110,6 +111,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dc3d2689e50daa54ea89c4608e185724, type: 3}
   - {fileID: 21300000, guid: fc052e998f900f7478d4cdbca975ed7e, type: 3}
   - {fileID: 21300000, guid: 91b831c91dec16e44b0a62cb39574881, type: 3}
+  - {fileID: 21300000, guid: 5a5043c934fcdb242a16163938e6a31c, type: 3}
   - {fileID: 21300000, guid: ecec0bd9b1ee33d4f83df22611bc1da3, type: 3}
   - {fileID: 21300000, guid: dfb04cf983b16134e9e5aec7f703a0de, type: 3}
   - {fileID: 21300000, guid: 72a3ef3abcecda745910e08441f1f286, type: 3}
@@ -181,6 +183,7 @@ SpriteAtlas:
   - getout
   - s1
   - 12
+  - dmca_tagiri
   - m_0002
   - 13
   - m_0005

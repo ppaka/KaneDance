@@ -416,11 +416,12 @@ MonoBehaviour:
   movingAnimator: {fileID: 1356953693}
   moeAnimator: {fileID: 341885896}
   sorryAnimator: {fileID: 697439430}
-  audio: {fileID: 2106194446}
+  audioSource: {fileID: 2106194446}
   scoreTxt: {fileID: 1685232804}
   hpBar: {fileID: 191274752}
   dmcaClip: {fileID: 8300000, guid: 752c68ebb86b91149b664aa1c13dee6e, type: 3}
   originalClip: {fileID: 8300000, guid: 2cbb3011e220cec4fba92f8d85c0af13, type: 3}
+  teacherWatching: 1
 --- !u!4 &458308906
 Transform:
   m_ObjectHideFlags: 0
@@ -1385,6 +1386,7 @@ GameObject:
   - component: {fileID: 441870065037772096}
   - component: {fileID: 958729596395350449}
   - component: {fileID: 3890821043831917040}
+  - component: {fileID: 3890821043831917041}
   m_Layer: 0
   m_Name: Teacher_Kane
   m_TagString: Untagged
@@ -1411,3 +1413,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3890821043831917041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3890821043831917039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f735155469697a40bc78c3833859d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameScript: {fileID: 458308905}
