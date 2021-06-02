@@ -13,7 +13,7 @@ public class GameScript : MonoBehaviour
     public Animator movingAnimator;
     public Animator moeAnimator;
     public Animator sorryAnimator;
-    public new AudioSource audio;
+    public AudioSource audioSource;
     public TMP_Text scoreTxt;
     public Image hpBar;
     
@@ -24,7 +24,7 @@ public class GameScript : MonoBehaviour
     private float _score;
     private bool _keydown;
     private bool _gameOver;
-    private bool _teacherWatching = true;
+    public bool teacherWatching = true;
     private static readonly int Watch = Animator.StringToHash("Watch");
 
     private void Awake()
@@ -37,11 +37,11 @@ public class GameScript : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
         {
-            audio.clip = originalClip;
+            audioSource.clip = originalClip;
         }
         else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
         {
-            audio.clip = dmcaClip;
+            audioSource.clip = dmcaClip;
         }
         
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -68,7 +68,7 @@ public class GameScript : MonoBehaviour
             _score += Time.deltaTime * 15;
         }
 
-        if (_teacherWatching && _keydown)
+        if (teacherWatching && _keydown)
         {
             PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
             SceneManager.LoadScene("GameOver");
@@ -81,14 +81,14 @@ public class GameScript : MonoBehaviour
         {
             try
             {
-                if (_teacherWatching)
+                if (teacherWatching)
                 {
                     PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
                     SceneManager.LoadScene("GameOver");
                 }
                 
                 _keydown = true;
-                audio.Play();
+                audioSource.Play();
                 moongtaengAnimator.SetBool(SpaceDown, true);
                 movingAnimator.SetBool(SpaceDown, true);
                 moeAnimator.SetBool(SpaceDown, true);
@@ -104,7 +104,7 @@ public class GameScript : MonoBehaviour
             try
             {
                 _keydown = false;
-                audio.Stop();
+                audioSource.Stop();
                 moongtaengAnimator.SetBool(SpaceDown, false);
                 movingAnimator.SetBool(SpaceDown, false);
                 moeAnimator.SetBool(SpaceDown, false);
@@ -126,9 +126,7 @@ public class GameScript : MonoBehaviour
     private IEnumerator TurnBack()
     {
         teacherAnimator.SetBool(Watch, false);
-        yield return new WaitForSeconds(0.2f);
-        _teacherWatching = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.45f);
         StartCoroutine(nameof(Random));
     }
 
@@ -139,7 +137,6 @@ public class GameScript : MonoBehaviour
         {
             teacherAnimator.SetBool(Watch, true);
             yield return new WaitForSeconds(0.39f);
-            _teacherWatching = true;
             
             var turnRange = UnityEngine.Random.Range(1, 5);
             yield return new WaitForSeconds(turnRange);
