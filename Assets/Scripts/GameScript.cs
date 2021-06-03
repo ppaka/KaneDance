@@ -25,7 +25,8 @@ public class GameScript : MonoBehaviour
     private bool _keydown;
     private bool _gameOver;
     public bool teacherWatching = true;
-    private static readonly int Watch = Animator.StringToHash("Watch");
+    public readonly int watch = Animator.StringToHash("Watch");
+    public readonly int fake = Animator.StringToHash("Fake");
 
     private void Awake()
     {
@@ -120,32 +121,6 @@ public class GameScript : MonoBehaviour
     private IEnumerator FirstStart()
     {
         yield return new WaitForSeconds(0.2f);
-        StartCoroutine(nameof(TurnBack));
-    }
-
-    private IEnumerator TurnBack()
-    {
-        teacherAnimator.SetBool(Watch, false);
-        yield return new WaitForSeconds(0.45f);
-        StartCoroutine(nameof(Random));
-    }
-
-    private IEnumerator Random()
-    {
-        var range = UnityEngine.Random.Range(1, 100);
-        if (range >= 78)
-        {
-            teacherAnimator.SetBool(Watch, true);
-            yield return new WaitForSeconds(0.39f);
-            
-            var turnRange = UnityEngine.Random.Range(1, 5);
-            yield return new WaitForSeconds(turnRange);
-            StartCoroutine(nameof(TurnBack));
-        }
-        else
-        {
-            yield return new WaitForSeconds(1.2f);
-            StartCoroutine(nameof(Random));
-        }
+        teacherAnimator.SetBool(watch, false);
     }
 }

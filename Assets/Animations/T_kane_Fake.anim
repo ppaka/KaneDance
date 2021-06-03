@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: T_kane_1_4
+  m_Name: T_kane_Fake
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -451798585716176611, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d,
+      value: {fileID: 705802017947741181, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d,
         type: 3}
     - time: 0.083333336
-      value: {fileID: 1862139635436174746, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d,
-        type: 3}
-    - time: 0.16666667
       value: {fileID: -3235515813338845710, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d,
-        type: 3}
-    - time: 0.25
-      value: {fileID: 705802017947741181, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -451798585716176611, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d, type: 3}
-    - {fileID: 1862139635436174746, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d, type: 3}
-    - {fileID: -3235515813338845710, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d, type: 3}
     - {fileID: 705802017947741181, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d, type: 3}
+    - {fileID: -3235515813338845710, guid: 9caf8ca77d984ae4cb0f8d258b84eb1d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -80,21 +72,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: WatchStu
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.25
     functionName: NotWatchStu
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
-    functionName: CallTurnBack
+  - time: 0.1
+    functionName: CallFakeRandom
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
