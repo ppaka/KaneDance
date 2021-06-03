@@ -49,7 +49,6 @@ public class TeacherCheck : MonoBehaviour
         }
         else if (range >= 46 || stack >= 5)
         {
-            stack = 0;
             gameScript.teacherAnimator.SetBool(gameScript.watch, true);
             yield return new WaitForSeconds(0.5f);
 
@@ -57,10 +56,12 @@ public class TeacherCheck : MonoBehaviour
             yield return new WaitForSeconds(turnRange);
             gameScript.teacherAnimator.SetBool(gameScript.watch, false);
             StartCoroutine(nameof(TurnBack));
+            stack = 0;
         }
         else
         {
             stack++;
+            Debug.Log(stack);
             yield return new WaitForSeconds(1.2f);
             StartCoroutine(nameof(Random));
         }
