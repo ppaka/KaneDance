@@ -32,12 +32,12 @@ public class TeacherCheck : MonoBehaviour
         var range = UnityEngine.Random.Range(1, 100);
         if (range >= 71)
         {
-            gameScript.teacherAnimator.SetBool(gameScript.watch, true);
+            gameScript.teacherAnimator.SetBool(gameScript.Watch, true);
             yield return new WaitForSeconds(0.5f);
 
             var turnRange = UnityEngine.Random.Range(1, 5);
             yield return new WaitForSeconds(turnRange);
-            gameScript.teacherAnimator.SetBool(gameScript.watch, false);
+            gameScript.teacherAnimator.SetBool(gameScript.Watch, false);
             StartCoroutine(nameof(TurnBack));
         }
         else

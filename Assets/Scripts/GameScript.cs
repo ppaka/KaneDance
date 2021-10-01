@@ -25,8 +25,7 @@ public class GameScript : MonoBehaviour
     private bool _keydown;
     private bool _gameOver;
     public bool teacherWatching = true;
-    public readonly int watch = Animator.StringToHash("Watch");
-    public readonly int fake = Animator.StringToHash("Fake");
+    public readonly int Watch = Animator.StringToHash("Watch");
 
     private void Awake()
     {
@@ -57,6 +56,12 @@ public class GameScript : MonoBehaviour
             PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
             SceneManager.LoadScene("GameOver");
         }
+        
+        if (teacherWatching && _keydown)
+        {
+            PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
+            SceneManager.LoadScene("GameOver");
+        }
 
         if (_keydown)
         {
@@ -67,12 +72,6 @@ public class GameScript : MonoBehaviour
         {
             hpBar.fillAmount -= Time.deltaTime * 0.05f;
             _score += Time.deltaTime * 15;
-        }
-
-        if (teacherWatching && _keydown)
-        {
-            PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
-            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -88,12 +87,12 @@ public class GameScript : MonoBehaviour
                     SceneManager.LoadScene("GameOver");
                 }
                 
-                _keydown = true;
                 audioSource.Play();
                 moongtaengAnimator.SetBool(SpaceDown, true);
                 movingAnimator.SetBool(SpaceDown, true);
                 moeAnimator.SetBool(SpaceDown, true);
                 sorryAnimator.SetBool(SpaceDown, true);
+                _keydown = true;
             }
             catch
             {
@@ -104,12 +103,12 @@ public class GameScript : MonoBehaviour
         {
             try
             {
-                _keydown = false;
                 audioSource.Stop();
                 moongtaengAnimator.SetBool(SpaceDown, false);
                 movingAnimator.SetBool(SpaceDown, false);
                 moeAnimator.SetBool(SpaceDown, false);
                 sorryAnimator.SetBool(SpaceDown, false);
+                _keydown = false;
             }
             catch
             {
@@ -121,6 +120,6 @@ public class GameScript : MonoBehaviour
     private IEnumerator FirstStart()
     {
         yield return new WaitForSeconds(0.2f);
-        teacherAnimator.SetBool(watch, false);
+        teacherAnimator.SetBool(Watch, false);
     }
 }
