@@ -1,5 +1,5 @@
-lastUpgrade=01012
-proj.pluginVersion=0.10.12
+lastUpgrade=01013
+proj.pluginVersion=0.10.13
 proj.AppId=148374421438
 and.BundleId=com.ppaka.KaneDance
 proj.classDir=Assets
