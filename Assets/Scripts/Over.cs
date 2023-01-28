@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class Over : MonoBehaviour
 {
     public AudioClip ja, igonan;
-    public new Camera camera;
     public SpriteRenderer fgetout, getout, sorry, hit;
     public Animator hittingAnim;
     public AudioSource audioSorry;
@@ -83,7 +82,7 @@ public class Over : MonoBehaviour
         getout.gameObject.SetActive(false);
         sorry.gameObject.SetActive(false);
         hit.gameObject.SetActive(false);
-        camera.backgroundColor = Color.white;
+        Camera.main!.backgroundColor = Color.white;
         audioSorry.clip = igonan;
         audioSorry.Play();
         canvasGroup.alpha = 1;
@@ -101,7 +100,7 @@ public class Over : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        camera.backgroundColor = new Color(0.7372549f, 0.8352942f, 0.6235294f);
+        Camera.main!.backgroundColor = new Color(0.7372549f, 0.8352942f, 0.6235294f);
         getout.gameObject.SetActive(false);
         sorry.gameObject.SetActive(true);
         audioSorry.Play();
@@ -109,7 +108,7 @@ public class Over : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         audioSorry.Stop();
-        camera.backgroundColor = Color.white;
+        Camera.main.backgroundColor = Color.white;
         sorry.gameObject.SetActive(false);
         hit.gameObject.SetActive(true);
         hittingAnim.SetTrigger(Start1);

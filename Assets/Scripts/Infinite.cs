@@ -6,7 +6,7 @@ public class Infinite : MonoBehaviour
 {
     public Canvas descriptionCanvas, IngameCanvas;
     public Animator moongtaengAnimator, movingAnimator, moeAnimator, sorryAnimator;
-    public new AudioSource audio;
+    public AudioSource audioSource;
 
     public AudioClip dmcaClip, originalClip;
     
@@ -17,11 +17,11 @@ public class Infinite : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
         {
-            audio.clip = originalClip;
+            audioSource.clip = originalClip;
         }
         else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
         {
-            audio.clip = dmcaClip;
+            audioSource.clip = dmcaClip;
         }
         
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -47,7 +47,7 @@ public class Infinite : MonoBehaviour
         movingAnimator.gameObject.SetActive(true);
         moeAnimator.gameObject.SetActive(true);
         sorryAnimator.gameObject.SetActive(true);
-        audio.gameObject.SetActive(true);
+        audioSource.gameObject.SetActive(true);
         _started = true;
     }
 
@@ -72,7 +72,7 @@ public class Infinite : MonoBehaviour
                     {
                         case false:
                             _playing = true;
-                            audio.Play();
+                            audioSource.Play();
                             moongtaengAnimator.SetBool(SpaceDown, true);
                             movingAnimator.SetBool(SpaceDown, true);
                             moeAnimator.SetBool(SpaceDown, true);
@@ -80,7 +80,7 @@ public class Infinite : MonoBehaviour
                             break;
                         case true:
                             _playing = false;
-                            audio.Stop();
+                            audioSource.Stop();
                             moongtaengAnimator.SetBool(SpaceDown, false);
                             movingAnimator.SetBool(SpaceDown, false);
                             moeAnimator.SetBool(SpaceDown, false);
@@ -90,7 +90,7 @@ public class Infinite : MonoBehaviour
                 }
                 else
                 {
-                    audio.Play();
+                    audioSource.Play();
                     moongtaengAnimator.SetBool(SpaceDown, true);
                     movingAnimator.SetBool(SpaceDown, true);
                     moeAnimator.SetBool(SpaceDown, true);
@@ -108,7 +108,7 @@ public class Infinite : MonoBehaviour
             {
                 if (!_toggle)
                 {
-                    audio.Stop();
+                    audioSource.Stop();
                     moongtaengAnimator.SetBool(SpaceDown, false);
                     movingAnimator.SetBool(SpaceDown, false);
                     moeAnimator.SetBool(SpaceDown, false);

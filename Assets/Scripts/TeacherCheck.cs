@@ -1,10 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TeacherCheck : MonoBehaviour
 {
     public GameScript gameScript;
+
+    private UnityRandom _uRand;
+    private float _t;
+
+    private void Start()
+    {
+        _uRand = new UnityRandom();
+    }
 
     public void WatchStu()
     {
@@ -29,20 +36,23 @@ public class TeacherCheck : MonoBehaviour
 
     private IEnumerator Random()
     {
-        var range = UnityEngine.Random.Range(1, 100);
-        if (range >= 71)
+        var range = _uRand.Range(1, 100, UnityRandom.Normalization.POWERLAW, _t);
+        // range = UnityEngine.Random.Range(1, 100f);
+        // print(range);
+        if (range >= 81)
         {
+            _t = 0;
             gameScript.teacherAnimator.SetBool(gameScript.Watch, true);
             yield return new WaitForSeconds(0.5f);
 
-            var turnRange = UnityEngine.Random.Range(1, 5);
+            var turnRange = UnityEngine.Random.Range(1f, 5.5f);
             yield return new WaitForSeconds(turnRange);
             gameScript.teacherAnimator.SetBool(gameScript.Watch, false);
-            StartCoroutine(nameof(TurnBack));
         }
         else
         {
-            yield return new WaitForSeconds(1.2f);
+            _t += 0.02f;
+            yield return new WaitForSeconds(1.3f);
             StartCoroutine(nameof(Random));
         }
     }
