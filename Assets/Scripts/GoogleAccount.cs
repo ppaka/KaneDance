@@ -17,7 +17,6 @@ public class GoogleAccount : MonoBehaviour
 
     private bool _waitingForAuth;
     public Button linkGoogle;
-    public Button unlinkGoogle;
     public Button showLeaderboard;
     public Button showAchievement;
 
@@ -41,7 +40,6 @@ public class GoogleAccount : MonoBehaviour
         if (Social.localUser.authenticated)
         {
             _waitingForAuth = false;
-            unlinkGoogle.gameObject.SetActive(true);
             showLeaderboard.gameObject.SetActive(true);
             showAchievement.gameObject.SetActive(true);
             linkGoogle.gameObject.SetActive(false);
@@ -50,12 +48,33 @@ public class GoogleAccount : MonoBehaviour
 
     private void InitializeGooglePlayGamesService()
     {
-        var config = new PlayGamesClientConfiguration.Builder()
-            .Build();
+        //var config = new PlayGamesClientConfiguration.Builder().Build();
 
-        PlayGamesPlatform.InitializeInstance(config);
+        //PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+    }
+
+    private void ProcessAuthentication(SignInStatus status)
+    {
+        if (status == SignInStatus.Success)
+        {
+            _waitingForAuth = false;
+            showLeaderboard.gameObject.SetActive(true);
+            showAchievement.gameObject.SetActive(true);
+            linkGoogle.gameObject.SetActive(false);
+        }
+        else
+        {
+#if UNITY_ANDROID
+            _waitingForAuth = true;
+            showLeaderboard.gameObject.SetActive(false);
+            showAchievement.gameObject.SetActive(false);
+            linkGoogle.gameObject.SetActive(true);
+#endif
+            PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
+        }
     }
 
     private static ISavedGameClient SavedGame()
@@ -115,7 +134,6 @@ public class GoogleAccount : MonoBehaviour
                     if (result)
                     {
                         _waitingForAuth = false;
-                        unlinkGoogle.gameObject.SetActive(true);
                         showLeaderboard.gameObject.SetActive(true);
                         showAchievement.gameObject.SetActive(true);
                         linkGoogle.gameObject.SetActive(false);
@@ -123,7 +141,6 @@ public class GoogleAccount : MonoBehaviour
                     else
                     {
                         _waitingForAuth = true;
-                        unlinkGoogle.gameObject.SetActive(false);
                         showLeaderboard.gameObject.SetActive(false);
                         showAchievement.gameObject.SetActive(false);
                         linkGoogle.gameObject.SetActive(true);
@@ -131,20 +148,6 @@ public class GoogleAccount : MonoBehaviour
                 }
             );
         }
-    }
-
-    public void LogOut()
-    {
-        if (_waitingForAuth) return;
-
-#if UNITY_ANDROID
-        PlayGamesPlatform.Instance.SignOut();
-        _waitingForAuth = true;
-        unlinkGoogle.gameObject.SetActive(false);
-        showLeaderboard.gameObject.SetActive(false);
-        showAchievement.gameObject.SetActive(false);
-        linkGoogle.gameObject.SetActive(true);
-#endif
     }
 
     public void Achievements()

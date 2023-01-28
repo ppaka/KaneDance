@@ -74,6 +74,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1a49b3c0ce097314c9be65c5be1d0d72, type: 3}
   - {fileID: 21300000, guid: 983ff3e0c8c246f4898089d26ba5bd41, type: 3}
   - {fileID: 21300000, guid: 4d261c619b6414d469dd59ab304193a0, type: 3}
+  - {fileID: 21300000, guid: 7f920b81912985b48b61f616060b44fb, type: 3}
   - {fileID: 21300000, guid: 7e1ca9c101adfe244b8b237c69825538, type: 3}
   - {fileID: 21300000, guid: a7f41be18bfc66e4b838ec29d2248e8f, type: 3}
   - {fileID: 21300000, guid: 182bf7228d786be46a352c83f342cf9c, type: 3}
@@ -146,6 +147,7 @@ SpriteAtlas:
   - getout1
   - 14
   - 5
+  - unnamed
   - 20
   - d
   - 1
