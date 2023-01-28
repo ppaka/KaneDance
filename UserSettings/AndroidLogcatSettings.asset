@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "95BAY0UF70",
         "name": "com.ppaka.KaneDance",
-        "processId": 25134,
+        "processId": 20985,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -66,6 +66,12 @@
             "deviceId": "95BAY0UF70",
             "name": "com.ppaka.KaneDance",
             "processId": 25134,
+            "exited": false
+        },
+        {
+            "deviceId": "95BAY0UF70",
+            "name": "com.ppaka.KaneDance",
+            "processId": 20985,
             "exited": false
         }
     ],
