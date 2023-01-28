@@ -14,7 +14,7 @@
 
 # 게임 다운로드
 
-윈도우 | 안드로이드
+윈도우(64비트) | 안드로이드
 ---------- | ---------- 
 [링크](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [플레이스토어](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
 
