@@ -14,9 +14,9 @@
 
 # 게임 다운로드
 
-윈도우(32비트) | 안드로이드
----------- | ---------- 
-[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [플레이스토어](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance)
+윈도우(32비트) | 안드로이드 | 웹 브라우저
+---------- | ---------- | ----------
+[링크](https://github.com/ppaka/KaneDance/releases/latest/download/Build.zip) | [플레이스토어](https://play.google.com/store/apps/details?id=com.ppaka.KaneDance) | [itch.io](https://ppaka.itch.io/kane-dance)
 
 실행시 나오는 경고문은 가볍게 무시 해주시고 설치해주시면 됩니다.
 
