@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Text score;
     public Image tagiriImg;
     public Sprite dmca, original;
+    public Button exitButton;
 
     private void Start()
     {
@@ -20,6 +21,10 @@ public class MainMenu : MonoBehaviour
         {
             tagiriImg.sprite = dmca;
         }
+
+#if UNITY_WEBGL
+        exitButton.gameObject.SetActive(false);
+#endif
         
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
         

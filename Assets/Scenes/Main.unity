@@ -2785,6 +2785,7 @@ MonoBehaviour:
   tagiriImg: {fileID: 84554823}
   dmca: {fileID: 21300000, guid: 5a5043c934fcdb242a16163938e6a31c, type: 3}
   original: {fileID: 21300000, guid: 65397762b73bfd042b9cb63f2b5f9250, type: 3}
+  exitButton: {fileID: 27853114}
 --- !u!4 &1283093569
 Transform:
   m_ObjectHideFlags: 0
