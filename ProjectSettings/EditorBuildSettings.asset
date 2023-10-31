@@ -15,6 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: e78cc0bd7bf4825479e04f9f800f5c9f
   - enabled: 1
+    path: Assets/Scenes/HP_GameOver.unity
+    guid: 0073c0ebe469cd8408e75724d74e5747
+  - enabled: 1
     path: Assets/Scenes/InfiniteGame.unity
     guid: 073af92468c824c4cb3c6beb29c4be0c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 5039789ba1c9ded42ab795cad6a3560e,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: e40324471ba84d3468639b126bb5cf6b,
+      type: 2}
