@@ -54,7 +54,7 @@ public class GameScript : MonoBehaviour
         if (hpBar.fillAmount == 0)
         {
             PlayerPrefs.SetInt("Score", int.Parse(_score.ToString("0")));
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("HP_GameOver");
         }
         
         if (teacherWatching && _keydown)
