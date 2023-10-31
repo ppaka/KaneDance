@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "95BAY0UF70",
+    "m_SelectedDeviceId": "R3CR30DGXHV",
     "m_SelectedPackage": {
-        "deviceId": "95BAY0UF70",
+        "deviceId": "R3CR30DGXHV",
         "name": "com.ppaka.KaneDance",
-        "processId": 20985,
+        "processId": 6783,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -72,6 +72,18 @@
             "deviceId": "95BAY0UF70",
             "name": "com.ppaka.KaneDance",
             "processId": 20985,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.sec.android.app.launcher",
+            "processId": 2527,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.ppaka.KaneDance",
+            "processId": 6783,
             "exited": false
         }
     ],
