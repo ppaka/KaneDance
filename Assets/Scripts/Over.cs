@@ -36,6 +36,7 @@ public class Over : MonoBehaviour
     {
         StartCoroutine(nameof(ChangeScreen));
 
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
         var score = PlayerPrefs.GetInt("Score");
         scoreTxt.text = score.ToString();
         highScoreTxt.text = PlayerPrefs.GetInt("HighScore").ToString();
@@ -50,7 +51,7 @@ public class Over : MonoBehaviour
         {
             Social.ReportScore(PlayerPrefs.GetInt("HighScore"), GPGSIds.leaderboard_ranks, success =>
             {
-                successTxt.text = success ? "점수 등록 성공!" : "점수 등록 실패...";
+                successTxt.text = success ? "" : "점수 등록 실패";
             });
                 
             Social.ReportProgress(GPGSIds.achievement_first_try, (double)100, success => {});
@@ -66,7 +67,7 @@ public class Over : MonoBehaviour
         }
         else
         {
-            successTxt.text = "점수를 등록하려면 메인 메뉴에서 게임패드 모양의 버튼을 눌러주세요...";
+            successTxt.text = "소셜 로그인이 되어있지 않습니다!";
         }
 #endif
     }
@@ -125,6 +126,5 @@ public class Over : MonoBehaviour
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 }
