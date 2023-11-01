@@ -85,7 +85,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: moe
-  m_Speed: 2.75
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1144473258839719361}
