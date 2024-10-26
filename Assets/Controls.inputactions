@@ -9,9 +9,10 @@
                     "name": "GamePlay",
                     "type": "Button",
                     "id": "46b5e418-33dd-4396-9de9-7d51eb9694de",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

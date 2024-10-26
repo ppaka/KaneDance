@@ -1,4 +1,8 @@
 ﻿using System.Collections;
+
+#if UNITY_ANDROID
+using GooglePlayGames;
+#endif
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,23 +46,23 @@ public class HpOver : MonoBehaviour
             highScoreTxt.text = "최고 기록!";
         }
 #if UNITY_ANDROID
-        if (Social.localUser.authenticated)
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
         {
-            Social.ReportScore(PlayerPrefs.GetInt("HighScore"), GPGSIds.leaderboard_ranks, success =>
+            PlayGamesPlatform.Instance.ReportScore(PlayerPrefs.GetInt("HighScore"), GPGSIds.leaderboard_ranks, success =>
             {
                 successTxt.text = success ? "" : "점수 등록 실패";
             });
                 
-            Social.ReportProgress(GPGSIds.achievement_first_try, (double)100, success => {});
-            Social.ReportProgress(GPGSIds.achievement_300, (double)score / 300*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_500, (double)score / 500*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_750, (double)score/750*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_1000, (double)score/1000*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_1500, (double)score/1500*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_2000, (double)score/2000*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_2500, (double)score/2500*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_3000, (double)score/3000*100, success => { });
-            Social.ReportProgress(GPGSIds.achievement_all_clear, (double)score/3000*100, success => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_first_try, 100, _ => {});
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_300, (double)score / 300*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_500, (double)score / 500*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_750, (double)score/750*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_1000, (double)score/1000*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_1500, (double)score/1500*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_2000, (double)score/2000*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_2500, (double)score/2500*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_3000, (double)score/3000*100, _ => { });
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_all_clear, (double)score/3000*100, _ => { });
         }
         else
         {

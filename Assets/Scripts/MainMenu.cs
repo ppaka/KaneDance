@@ -7,42 +7,64 @@ public class MainMenu : MonoBehaviour
 {
     public TMP_Text versionTxt;
     public TMP_Text score;
-    public Image tagiriImg;
-    public Sprite dmca, original;
+    public TMP_Text bgmModeText;
     public Button exitButton;
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
+        Debug.Log($"Current Display RefreshRate {Screen.currentResolution.refreshRateRatio.value}");
+        if (Application.platform == RuntimePlatform.Android)
         {
-            tagiriImg.sprite = original;
+            Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
         }
-        else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
+        else
         {
-            tagiriImg.sprite = dmca;
+            Application.targetFrameRate = 1000;
+        }
+        
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+        versionTxt.text = Application.version;
+        score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        
+        var isDmca = PlayerPrefs.GetInt("isDMCA", 1);
+        StaticVariables.isDmca = isDmca;
+        switch (isDmca)
+        {
+            case 0:
+                bgmModeText.SetText("음악 모드\n원본");
+                break;
+            case 1:
+                bgmModeText.SetText("음악 모드\nDMCA 회피");
+                break;
         }
 
 #if UNITY_WEBGL
         exitButton.gameObject.SetActive(false);
 #endif
-        
-        Screen.sleepTimeout = SleepTimeout.SystemSetting;
-        
-        versionTxt.text = Application.version;
-        score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     public void ChangeSong()
     {
-        if (PlayerPrefs.GetInt("isDMCA", 1) == 0)
+        var dmcaValue = PlayerPrefs.GetInt("isDMCA", 1);
+        if (dmcaValue == 0)
         {
-            tagiriImg.sprite = dmca;
-            PlayerPrefs.SetInt("isDMCA", 1);
+            dmcaValue = 1;
         }
-        else if (PlayerPrefs.GetInt("isDMCA", 1) == 1)
+        else if (dmcaValue == 1)
         {
-            tagiriImg.sprite = original;
-            PlayerPrefs.SetInt("isDMCA", 0);
+            dmcaValue = 0;
+        }
+        
+        PlayerPrefs.SetInt("isDMCA", dmcaValue);
+        StaticVariables.isDmca = dmcaValue;
+        switch (dmcaValue)
+        {
+            case 0:
+                bgmModeText.SetText("음악 모드\n원본");
+                break;
+            case 1:
+                bgmModeText.SetText("음악 모드\nDMCA 회피");
+                break;
         }
     }
 
@@ -62,14 +84,14 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
     
-    public void LinkTgd()
+    public void LinkSoop()
     {
-        Application.OpenURL("https://tgd.kr/s/kanetv8");
+        Application.OpenURL("https://ch.sooplive.co.kr/udkn");
     }
     
-    public void LinkTwitch()
+    public void LinkCafe()
     {
-        Application.OpenURL("https://www.twitch.tv/kanetv8");
+        Application.OpenURL("https://cafe.naver.com/kanetv");
     }
 
     public void LinkGithub()
