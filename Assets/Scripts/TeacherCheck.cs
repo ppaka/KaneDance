@@ -3,24 +3,21 @@ using UnityEngine;
 
 public class TeacherCheck : MonoBehaviour
 {
-    public GameScript gameScript;
-
-    private UnityRandom _uRand;
-    private float _t;
+    private GameScript _gameScript;
 
     private void Start()
     {
-        _uRand = new UnityRandom();
+        _gameScript = FindAnyObjectByType<GameScript>();
     }
 
     public void WatchStu()
     {
-        gameScript.teacherWatching = true;
+        _gameScript.teacherWatching = true;
     }
 
     public void NotWatchStu()
     {
-        gameScript.teacherWatching = false;
+        _gameScript.teacherWatching = false;
     }
 
     public void CallTurnBack()
@@ -36,22 +33,18 @@ public class TeacherCheck : MonoBehaviour
 
     private IEnumerator Random()
     {
-        var range = _uRand.Range(1, 100, UnityRandom.Normalization.POWERLAW, _t);
-        // range = UnityEngine.Random.Range(1, 100f);
-        // print(range);
+        var range = UnityEngine.Random.Range(1, 100f);
         if (range >= 81)
         {
-            _t = 0;
-            gameScript.teacherAnimator.SetBool(gameScript.Watch, true);
+            _gameScript.teacherAnimator.SetBool(GameScript.Watch, true);
             yield return new WaitForSeconds(0.5f);
 
             var turnRange = UnityEngine.Random.Range(1f, 5.5f);
             yield return new WaitForSeconds(turnRange);
-            gameScript.teacherAnimator.SetBool(gameScript.Watch, false);
+            _gameScript.teacherAnimator.SetBool(GameScript.Watch, false);
         }
         else
         {
-            _t += 0.02f;
             yield return new WaitForSeconds(1.3f);
             StartCoroutine(nameof(Random));
         }

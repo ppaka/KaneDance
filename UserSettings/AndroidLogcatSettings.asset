@@ -1,90 +1,42 @@
 {
     "m_SelectedDeviceId": "R3CR30DGXHV",
-    "m_SelectedPackage": {
-        "deviceId": "R3CR30DGXHV",
-        "name": "com.ppaka.KaneDance",
-        "processId": 6783,
+    "m_SelectedProcess": {
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 7122,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 8202,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 8508,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 4949,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 5852,
-            "exited": true
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.android.settings",
-            "processId": 3863,
-            "exited": false
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 6500,
-            "exited": false
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 12279,
-            "exited": false
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 12997,
-            "exited": false
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 25134,
-            "exited": false
-        },
-        {
-            "deviceId": "95BAY0UF70",
-            "name": "com.ppaka.KaneDance",
-            "processId": 20985,
-            "exited": false
-        },
+    "m_KnownProcessesForSerialization": [
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.sec.android.app.launcher",
-            "processId": 2527,
+            "processId": 3207,
             "exited": false
         },
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.ppaka.KaneDance",
-            "processId": 6783,
-            "exited": false
+            "processId": 5521,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.ppaka.KaneDance",
+            "processId": 7114,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.ppaka.KaneDance",
+            "processId": 10104,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.ppaka.KaneDance",
+            "processId": 18590,
+            "exited": true
         }
     ],
     "m_Tags": {
@@ -119,8 +71,11 @@
             }
         ]
     },
+    "m_ExtraWindowState": {
+        "Type": 0,
+        "Height": 0.0
+    },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 300.0,
         "MemoryWindowWidth": 170.0,
         "MemoryTypeEnabled": [
             true,
@@ -135,7 +90,7 @@
             true
         ],
         "MemoryGroup": 2,
-        "Behavior": 0
+        "AutoCapture": true
     },
     "m_FilterOptions": {
         "m_Filter": "",
@@ -153,5 +108,24 @@
         "BitRateK": 20000,
         "DisplayIdEnabled": false,
         "DisplayId": ""
-    }
+    },
+    "m_ScreenCaptureSettings": {
+        "Mode": 0,
+        "m_LastSaveLocation": [
+            "D:\\UnityProjects\\KaneDance",
+            "D:\\UnityProjects\\KaneDance"
+        ]
+    },
+    "m_InputSettings": {
+        "ShiftModifier": false,
+        "SendText": "",
+        "PosixKillSignal": 0,
+        "TargetProcess": {
+            "deviceId": "",
+            "name": "",
+            "processId": 0,
+            "exited": false
+        }
+    },
+    "m_AutoScroll": 0
 }

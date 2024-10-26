@@ -1,20 +1,16 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 #if UNITY_ANDROID
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
-using UnityEngine.SocialPlatforms;
 
 #endif
 // ReSharper disable StringLiteralTypo
 
 public class GoogleAccount : MonoBehaviour
 {
-    public static GoogleAccount Instance;
-
     private bool _waitingForAuth;
     public Button linkGoogle;
     public Button showLeaderboard;
@@ -27,7 +23,6 @@ public class GoogleAccount : MonoBehaviour
     {
         try
         {
-            Instance = this;
             InitializeGooglePlayGamesService();
             _waitingForAuth = true;
             linkGoogle.gameObject.SetActive(true);
@@ -37,7 +32,7 @@ public class GoogleAccount : MonoBehaviour
             linkGoogle.gameObject.SetActive(false);
         }
 
-        if (Social.localUser.authenticated)
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
         {
             _waitingForAuth = false;
             showLeaderboard.gameObject.SetActive(true);
@@ -126,10 +121,10 @@ public class GoogleAccount : MonoBehaviour
     public void Login()
     {
         if (!_waitingForAuth) return;
-
-        if (!Social.localUser.authenticated)
+#if UNITY_ANDROID
+        if (!PlayGamesPlatform.Instance.localUser.authenticated)
         {
-            Social.localUser.Authenticate(result =>
+            PlayGamesPlatform.Instance.localUser.Authenticate(result =>
                 {
                     if (result)
                     {
@@ -148,15 +143,20 @@ public class GoogleAccount : MonoBehaviour
                 }
             );
         }
+#endif
     }
 
     public void Achievements()
     {
-        Social.ShowAchievementsUI();
+#if UNITY_ANDROID
+        PlayGamesPlatform.Instance.ShowAchievementsUI();
+#endif
     }
 
     public void Leaderboards()
     {
-        Social.ShowLeaderboardUI();
+#if UNITY_ANDROID
+        PlayGamesPlatform.Instance.ShowLeaderboardUI();
+#endif
     }
 }
