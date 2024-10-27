@@ -96,7 +96,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -731,9 +731,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 904.92676, y: 397.05783, z: 2.1605556}
+    m_Target: {x: 67.735954, y: -47.38981, z: 0.67099357}
     speed: 2
-    m_Value: {x: 904.92676, y: 397.05783, z: 2.1605556}
+    m_Value: {x: 66.551796, y: -45.105076, z: 0.5581509}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -783,9 +783,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 885.42303
+    m_Target: 239.4789
     speed: 2
-    m_Value: 885.42303
+    m_Value: 250.76324
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1068,23 +1068,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40680000
+      m_SelectedIDs: 04780000
       m_LastClickedID: 0
-      m_ExpandedIDs: f4faffff
+      m_ExpandedIDs: 60d2ffffc6d3ffff16d4ffffaad4ffff56d5ffffd8d5ffffe8d6ffff52dbfffff2dbffff04ddffff6adeffff6aeefffff4faffff7e6b0000b46b0000ba6b0000146c0000506c0000746c00003c780000968100009c840000c0840000d0840000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Text (TMP)
+        m_OriginalName: Text (TMP)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 33960
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 133
+  controlID: 73
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1195,7 +1195,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1205,15 +1205,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 51
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 51
   m_LastProjectPath: D:\UnityProjects\KaneDance
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 191}
-    m_SelectedIDs: 646e0000
-    m_LastClickedID: 28260
+    scrollPos: {x: 0, y: 319}
+    m_SelectedIDs: 626e0000
+    m_LastClickedID: 28258
     m_ExpandedIDs: 00000000bc6d0000be6d0000c06d0000c26d0000c46d0000c66d0000c86d0000ca6d0000cc6d0000ce6d0000d06d0000d26d0000d46d0000d66d0000d86d0000da6d0000dc6d0000de6d0000e06d0000e26d0000e46d0000e66d0000e86d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1269,8 +1269,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 40680000
-    m_LastClickedInstanceID: 26688
+    m_SelectedInstanceIDs: 04780000
+    m_LastClickedInstanceID: 30724
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000022530000
     m_RenameOverlay:
