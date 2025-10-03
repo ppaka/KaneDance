@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "R3CR30DGXHV",
     "m_SelectedProcess": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "R3CR30DGXHV",
+        "name": "com.ppaka.KaneDance",
+        "processId": 12183,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,32 +11,38 @@
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.sec.android.app.launcher",
-            "processId": 3207,
+            "processId": 2564,
             "exited": false
         },
         {
             "deviceId": "R3CR30DGXHV",
-            "name": "com.ppaka.KaneDance",
-            "processId": 5521,
+            "name": "com.google.android.gms.ui",
+            "processId": 5759,
             "exited": true
         },
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.ppaka.KaneDance",
-            "processId": 7114,
+            "processId": 5629,
             "exited": true
         },
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.ppaka.KaneDance",
-            "processId": 10104,
+            "processId": 17223,
             "exited": true
         },
         {
             "deviceId": "R3CR30DGXHV",
             "name": "com.ppaka.KaneDance",
-            "processId": 18590,
+            "processId": 23123,
             "exited": true
+        },
+        {
+            "deviceId": "R3CR30DGXHV",
+            "name": "com.ppaka.KaneDance",
+            "processId": 12183,
+            "exited": false
         }
     ],
     "m_Tags": {
