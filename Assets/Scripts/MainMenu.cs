@@ -17,15 +17,11 @@ public class MainMenu : MonoBehaviour
         {
             Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
         }
-        else
-        {
-            Application.targetFrameRate = 1000;
-        }
-        
+
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
         versionTxt.text = Application.version;
         score.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-        
+
         var isDmca = PlayerPrefs.GetInt("isDMCA", 1);
         StaticVariables.isDmca = isDmca;
         switch (isDmca)
@@ -54,7 +50,7 @@ public class MainMenu : MonoBehaviour
         {
             dmcaValue = 0;
         }
-        
+
         PlayerPrefs.SetInt("isDMCA", dmcaValue);
         StaticVariables.isDmca = dmcaValue;
         switch (dmcaValue)
@@ -83,12 +79,12 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("Score");
         Application.Quit();
     }
-    
-    public void LinkSoop()
+
+    public void LinkChannel()
     {
-        Application.OpenURL("https://ch.sooplive.co.kr/udkn");
+        Application.OpenURL("https://chzzk.naver.com/7b1acb37b35928ff690d011296a9e5ab");
     }
-    
+
     public void LinkCafe()
     {
         Application.OpenURL("https://cafe.naver.com/kanetv");

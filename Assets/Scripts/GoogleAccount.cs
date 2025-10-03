@@ -67,8 +67,28 @@ public class GoogleAccount : MonoBehaviour
             showLeaderboard.gameObject.SetActive(false);
             showAchievement.gameObject.SetActive(false);
             linkGoogle.gameObject.SetActive(true);
+            PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthenticationByManually);
 #endif
-            PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
+        }
+    }
+    
+    private void ProcessAuthenticationByManually(SignInStatus status)
+    {
+        if (status == SignInStatus.Success)
+        {
+            _waitingForAuth = false;
+            showLeaderboard.gameObject.SetActive(true);
+            showAchievement.gameObject.SetActive(true);
+            linkGoogle.gameObject.SetActive(false);
+        }
+        else
+        {
+#if UNITY_ANDROID
+            _waitingForAuth = true;
+            showLeaderboard.gameObject.SetActive(false);
+            showAchievement.gameObject.SetActive(false);
+            linkGoogle.gameObject.SetActive(true);
+#endif
         }
     }
 
@@ -122,27 +142,7 @@ public class GoogleAccount : MonoBehaviour
     {
         if (!_waitingForAuth) return;
 #if UNITY_ANDROID
-        if (!PlayGamesPlatform.Instance.localUser.authenticated)
-        {
-            PlayGamesPlatform.Instance.localUser.Authenticate(result =>
-                {
-                    if (result)
-                    {
-                        _waitingForAuth = false;
-                        showLeaderboard.gameObject.SetActive(true);
-                        showAchievement.gameObject.SetActive(true);
-                        linkGoogle.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        _waitingForAuth = true;
-                        showLeaderboard.gameObject.SetActive(false);
-                        showAchievement.gameObject.SetActive(false);
-                        linkGoogle.gameObject.SetActive(true);
-                    }
-                }
-            );
-        }
+        PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthenticationByManually);
 #endif
     }
 
