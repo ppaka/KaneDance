@@ -24,6 +24,8 @@ namespace GooglePlayGames.Android
     using GooglePlayGames.BasicApi.SavedGame;
     using GooglePlayGames.OurUtils;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using UnityEngine;
     using UnityEngine.SocialPlatforms;
 
@@ -201,6 +203,102 @@ namespace GooglePlayGames.Android
                 AndroidTaskUtils.AddOnFailureListener(task, exception =>
                 {
                     OurUtils.Logger.e("Requesting server side access task failed - " +
+                                      exception.Call<string>("toString"));
+                    callback(null);
+                });
+            }
+        }
+
+        public void RequestServerSideAccess(bool forceRefreshToken, List<AuthScope> scopes, Action<AuthResponse> callback)
+        {
+            callback = AsOnGameThreadCallback(callback);
+
+            if (!GameInfo.WebClientIdInitialized())
+            {
+                throw new InvalidOperationException("Requesting server-side access requires a web client ID to be configured.");
+            }
+
+            if (scopes == null)
+            {
+                throw new ArgumentException("At least one scope must be provided.");
+            }
+
+            var javaScopesList = new AndroidJavaObject("java.util.ArrayList");
+
+            foreach (var scope in scopes)
+            {
+                javaScopesList.Call<bool>("add", getJavaScopeEnum(scope));
+            }
+
+            using (var client = getGamesSignInClient())
+            using (var task = client.Call<AndroidJavaObject>(
+                "requestServerSideAccess",
+                GameInfo.WebClientId,
+                forceRefreshToken,
+                javaScopesList))
+            {
+                AndroidTaskUtils.AddOnSuccessListener<AndroidJavaObject>(task, result =>  callback(ToAuthResponse(result)));
+
+                AndroidTaskUtils.AddOnFailureListener(task, exception =>
+                {
+                    OurUtils.Logger.e("Requesting server-side access with scopes task failed - " + exception.Call<string>("toString"));
+                    callback(new AuthResponse(null, new List<AuthScope>())); // Return empty response on failure
+                });
+            }
+        }
+
+        private AuthResponse ToAuthResponse(AndroidJavaObject result)
+        {
+            string authCode = result.Call<string>("getAuthCode");
+            var grantedScopesObject = result.Call<AndroidJavaObject>("getGrantedScopes");
+
+            var grantedScopesList = new List<AuthScope>();
+            if (grantedScopesObject != null)
+            {
+                int size = grantedScopesObject.Call<int>("size");
+                for (int i = 0; i < size; i++)
+                {
+                    var javaScopeEnum = grantedScopesObject.Call<AndroidJavaObject>("get", i);
+                    string javaScopeName = javaScopeEnum.Call<string>("name");
+                    if (Enum.TryParse(javaScopeName, out AuthScope grantedScope))
+                    {
+                        grantedScopesList.Add(grantedScope); 
+                    }
+                    else
+                    {
+                        OurUtils.Logger.w($"Unrecognized scope {javaScopeName} returned from java side.");
+                    }
+                }
+            }
+            AuthResponse authResponse = new AuthResponse(authCode, grantedScopesList);
+            return authResponse;
+        }
+
+        private AndroidJavaObject getJavaScopeEnum(AuthScope scope)
+        {
+            String AuthScopeClassName = "com.google.android.gms.games.gamessignin.AuthScope";
+            var javaAuthScopeClass = new AndroidJavaClass(AuthScopeClassName);
+            return javaAuthScopeClass.CallStatic<AndroidJavaObject>("valueOf", scope.GetValue());
+        }
+
+
+        public void RequestRecallAccessToken(Action<RecallAccess> callback)
+        {
+            callback = AsOnGameThreadCallback(callback);
+            using (var client = getRecallClient())
+            using (var task = client.Call<AndroidJavaObject>("requestRecallAccess"))
+            {
+                AndroidTaskUtils.AddOnSuccessListener<AndroidJavaObject>(
+                    task,
+                    recallAccess => {
+                        var sessionId = recallAccess.Call<string>("getSessionId");
+                        callback(new RecallAccess(sessionId));
+                    }
+                );
+
+                AndroidTaskUtils.AddOnFailureListener(task, exception =>
+                {
+                    OurUtils.Logger.e("Requesting Recall access task failed - " +
                                       exception.Call<string>("toString"));
                     callback(null);
                 });
@@ -1017,6 +1115,12 @@ namespace GooglePlayGames.Android
         private AndroidJavaObject getGamesSignInClient()
         {
             return mGamesClass.CallStatic<AndroidJavaObject>("getGamesSignInClient",
+                AndroidHelperFragment.GetActivity());
+        }
+
+        private AndroidJavaObject getRecallClient()
+        {
+            return mGamesClass.CallStatic<AndroidJavaObject>("getRecallClient",
                 AndroidHelperFragment.GetActivity());
         }
     }

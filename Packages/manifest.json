@@ -9,6 +9,7 @@
     }
   ],
   "dependencies": {
+    "com.google.external-dependency-manager": "1.2.186",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ide.rider": "3.0.34",
     "com.unity.ide.visualstudio": "2.0.22",
@@ -30,7 +31,6 @@
     "com.unity.modules.unitywebrequestassetbundle": "1.0.0",
     "com.unity.modules.unitywebrequestaudio": "1.0.0",
     "com.unity.modules.unitywebrequesttexture": "1.0.0",
-    "com.unity.modules.unitywebrequestwww": "1.0.0",
-    "com.google.external-dependency-manager": "1.2.183"
+    "com.unity.modules.unitywebrequestwww": "1.0.0"
   }
 }

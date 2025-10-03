@@ -1,9 +1,9 @@
-lastUpgrade=01101
-proj.pluginVersion=0.11.01
+lastUpgrade=20100
+proj.pluginVersion=2.1.0
 proj.AppId=148374421438
 and.BundleId=com.ppaka.KaneDance
 proj.classDir=Assets
 proj.ConstantsClassName=GPGSIds
 and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e148374421438%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.ppaka.KaneDance%3c%2fstring%3e%0d%0a++%3c%21--achievement+First+Try--%3e%0d%0a++%3cstring+name%3d%22achievement_first_try%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--achievement+300--%3e%0d%0a++%3cstring+name%3d%22achievement_300%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--achievement+500--%3e%0d%0a++%3cstring+name%3d%22achievement_500%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQBA%3c%2fstring%3e%0d%0a++%3c%21--achievement+750--%3e%0d%0a++%3cstring+name%3d%22achievement_750%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQBQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+1000--%3e%0d%0a++%3cstring+name%3d%22achievement_1000%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQBg%3c%2fstring%3e%0d%0a++%3c%21--achievement+1500--%3e%0d%0a++%3cstring+name%3d%22achievement_1500%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQBw%3c%2fstring%3e%0d%0a++%3c%21--achievement+2000--%3e%0d%0a++%3cstring+name%3d%22achievement_2000%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQCA%3c%2fstring%3e%0d%0a++%3c%21--achievement+2500--%3e%0d%0a++%3cstring+name%3d%22achievement_2500%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQCQ%3c%2fstring%3e%0d%0a++%3c%21--achievement+3000--%3e%0d%0a++%3cstring+name%3d%22achievement_3000%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQCg%3c%2fstring%3e%0d%0a++%3c%21--achievement+All+Clear--%3e%0d%0a++%3cstring+name%3d%22achievement_all_clear%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQCw%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+Ranks--%3e%0d%0a++%3cstring+name%3d%22leaderboard_ranks%22+translatable%3d%22false%22%3eCgkIvv-33qgEEAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
-and.ClientId=148374421438-0rcqu45rrae806c5j76fkdtc4sofmhbj.apps.googleusercontent.com
+and.ClientId=148374421438-sllphb132aa39jc6n4ceanbrehoafpsn.apps.googleusercontent.com
 android.SetupDone=true
